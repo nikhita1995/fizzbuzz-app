@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from "axios";
 import styles from '../App.module.css'
 
-const Login = () => {
+const Login = (props) => {
 
   const [formInput, setFormInput] = useState({
     email: "",
@@ -11,6 +11,7 @@ const Login = () => {
 
   const [errorMsg, setErrorMsg] = useState("")
 
+  //Function called when login button is clicked - generates jwt token
   const login = (event) => {
     axios({
       method: "POST",
@@ -21,10 +22,10 @@ const Login = () => {
       }
     })
       .then((response) => {
-        console.log("Logged in successfully")
+        props.setToken(response.data.access_token)
       }).catch((error) => {
         if (error.response) {
-          setErrorMsg("Invalid Username or password")
+          setErrorMsg(error.response.data.message)
           console.log(error.response)
         }
       })
@@ -37,6 +38,7 @@ const Login = () => {
     event.preventDefault()
   }
 
+  //Function called when username and password inputs are changed
   const handleChange = (event) => {
     const { value, name } = event.target
     setFormInput(prev => ({ ...prev, [name]: value })

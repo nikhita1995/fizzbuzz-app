@@ -10,6 +10,7 @@ const TableGrid = (props) => {
         { field: "val", flex: 1, headerName: "Alternate Value" }]
     const [rowData, setRowData] = useState([])
 
+    //When the props.data is updated below is called - (hook equivalent of ComponentDidUpdate in class component)
     useEffect(() => {
         if (props.data.length > 0) {
             setRowData(props.data)
