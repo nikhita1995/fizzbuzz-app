@@ -1,0 +1,51 @@
+.app_main_div {
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.main {
+    justify-content: center;
+    box-sizing: border-box;
+    padding-block: 100px;
+}
+
+.button_div,
+.data_main_div {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.logout_btn {
+    padding: 10px;
+    margin: 15px;
+    font-size: 18px;
+}
+
+.form_input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_input input,
+.form_input button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.error_msg {
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+.table_grid {
+    height: 520px;
+    display: grid
+}

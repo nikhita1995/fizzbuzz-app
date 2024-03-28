@@ -1,8 +1,13 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/login', methods=["POST"])
+def login():
+    response = {"message":"Successfully Logged In"}
+    return response
 
 
 #Endpoint to fetch altered values of 1-100 numbers 
@@ -16,6 +21,11 @@ def getFizzBuzz():
             else {"num": i, "val": "Fizz"} if i%3 == 0 
             else {"num": i, "val": "Buzz"} if i%5 == 0 
             else {"num": i, "val": str(i)} for i in range(1, 101)] 
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    response = jsonify({"message": "Successfully Logged out"})
+    return response
 
 
 if __name__ == "__main__":
